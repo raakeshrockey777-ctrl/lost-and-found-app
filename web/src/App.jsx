@@ -14,7 +14,7 @@ function App() {
     locationName: 'Downtown Center',
     latitude: '12.9716',
     longitude: '77.5946',
-    image: null
+    image: null,
   });
 
   const stats = useMemo(() => {
@@ -44,7 +44,7 @@ function App() {
     const { name, value, files } = event.target;
     setForm((current) => ({
       ...current,
-      [name]: files ? files[0] : value
+      [name]: files ? files[0] : value,
     }));
   };
 
@@ -61,13 +61,11 @@ function App() {
     try {
       const response = await fetch(`${API_URL}/items`, {
         method: 'POST',
-        body: payload
+        body: payload,
       });
 
       const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
-      }
+      if (!response.ok) throw new Error(data.message || 'Something went wrong');
 
       setForm({
         title: '',
@@ -77,7 +75,7 @@ function App() {
         locationName: 'Downtown Center',
         latitude: '12.9716',
         longitude: '77.5946',
-        image: null
+        image: null,
       });
 
       await fetchItems();
