@@ -1,0 +1,165 @@
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <StatusBar style="light" />
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.heroCard}>
+          <Text style={styles.eyebrow}>Lost & Found Platform</Text>
+          <Text style={styles.heading}>Orbit</Text>
+          <Text style={styles.subtitle}>Reconnect what was lost with smart vision and exact location tracking.</Text>
+          <View style={styles.buttonRow}>
+            <TouchableOpacity style={styles.primaryButton}><Text style={styles.primaryButtonText}>Lost Item</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.secondaryButton}><Text style={styles.secondaryButtonText}>Found Item</Text></TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.formCard}>
+          <Text style={styles.cardTitle}>Quick Report</Text>
+          <TextInput placeholder="Title" placeholderTextColor="#9eb5d6" style={styles.input} />
+          <TextInput placeholder="Category" placeholderTextColor="#9eb5d6" style={styles.input} />
+          <TextInput placeholder="Location" placeholderTextColor="#9eb5d6" style={styles.input} />
+          <TextInput placeholder="Description" multiline placeholderTextColor="#9eb5d6" style={[styles.input, styles.textarea]} />
+          <TouchableOpacity style={styles.primaryButton}><Text style={styles.primaryButtonText}>Submit</Text></TouchableOpacity>
+        </View>
+
+        <View style={styles.matchCard}>
+          <Text style={styles.cardTitle}>Potential Matches</Text>
+          <View style={styles.itemRow}>
+            <View style={styles.imageBox} />
+            <View style={styles.itemMeta}>
+              <Text style={styles.itemTitle}>Blue Backpack</Text>
+              <Text style={styles.itemText}>92% match near MG Road</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#070d1a'
+  },
+  scrollContent: {
+    padding: 24,
+    gap: 18
+  },
+  heroCard: {
+    backgroundColor: '#10192d',
+    borderRadius: 28,
+    padding: 28,
+    borderWidth: 1,
+    borderColor: 'rgba(144, 178, 255, 0.22)',
+  },
+  eyebrow: {
+    color: '#80d9ff',
+    fontSize: 11,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    marginBottom: 10
+  },
+  heading: {
+    fontSize: 42,
+    color: '#edf4ff',
+    fontWeight: '900',
+    marginBottom: 10
+  },
+  subtitle: {
+    color: '#bfd1f5',
+    fontSize: 16,
+    lineHeight: 24
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 20
+  },
+  primaryButton: {
+    backgroundColor: '#7dd5ff',
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 14,
+  },
+  primaryButtonText: {
+    color: '#03131d',
+    fontWeight: '800'
+  },
+  secondaryButton: {
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)'
+  },
+  secondaryButtonText: {
+    color: '#edf4ff',
+    fontWeight: '700'
+  },
+  formCard: {
+    backgroundColor: '#0d1729',
+    borderRadius: 24,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(144, 178, 255, 0.12)'
+  },
+  cardTitle: {
+    color: '#edf4ff',
+    fontSize: 22,
+    fontWeight: '800',
+    marginBottom: 14
+  },
+  input: {
+    backgroundColor: '#0a1221',
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(165,190,255,0.15)',
+    color: '#edf3ff',
+    padding: 14,
+    marginBottom: 12
+  },
+  textarea: {
+    minHeight: 100,
+    textAlignVertical: 'top'
+  },
+  matchCard: {
+    backgroundColor: '#10192d',
+    borderRadius: 24,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(144, 178, 255, 0.12)'
+  },
+  itemRow: {
+    flexDirection: 'row',
+    gap: 14,
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.02)',
+    borderRadius: 18,
+    padding: 10
+  },
+  imageBox: {
+    width: 82,
+    height: 82,
+    borderRadius: 16,
+    background: 'linear-gradient(135deg, #5cb8ff, #6058ff)',
+  },
+  itemMeta: {
+    flex: 1
+  },
+  itemTitle: {
+    color: '#edf4ff',
+    fontSize: 18,
+    fontWeight: '700'
+  },
+  itemText: {
+    color: '#b0c8f4',
+    fontSize: 14,
+    marginTop: 6
+  }
+});
